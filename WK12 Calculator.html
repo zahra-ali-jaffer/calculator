@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sum Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background-color: lightgrey;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    .calculator label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    .calculator input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    button {
+      width: 170px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    #addBtn, #refreshBtn {
+      background-color: #007bff; /* Same background color for both */
+      color: white;
+    }
+
+    #addBtn:hover, #refreshBtn:hover {
+      background-color: gold; /* Change hover color to gold */
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <label for="num1">Enter the first number:</label>
+    <input type="number" id="num1">
+
+    <label for="num2">Enter the second number:</label>
+    <input type="number" id="num2">
+
+    <div class="buttons">
+      <button id="addBtn">Add The Two Numbers</button>
+      <button id="refreshBtn" onclick="location.reload()">Refresh The Page</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById('addBtn').addEventListener('click', function () {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const resultDiv = document.getElementById('result');
+
+      if (!isNaN(num1) && !isNaN(num2)) {
+        const sum = num1 + num2;
+        resultDiv.textContent = `The sum is: ${sum}`;
+      } else {
+        resultDiv.textContent = "Please enter valid numbers.";
+      }
+    });
+  </script>
+
+</body>
+</html>
